@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B0BAB415-5319-4149-BF16-FFE23BB9E6E8</string>
+	<string>734DD2B9-040A-471B-81D8-9997AB2EB4D8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BASE</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BFFC293C-E5A4-4891-A1F6-9AC92A55BF62</key>
-		<string>ssh://bitbucket.org/tmiyamoto/base.git</string>
+		<key>6E2A18C0-FAFE-47FE-AF03-2522CA8384C3</key>
+		<string>https://bitbucket.org/gittaku/base_ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BASE.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BFFC293C-E5A4-4891-A1F6-9AC92A55BF62</key>
+		<key>6E2A18C0-FAFE-47FE-AF03-2522CA8384C3</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/tmiyamoto/base.git</string>
+	<string>https://bitbucket.org/gittaku/base_ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BFFC293C-E5A4-4891-A1F6-9AC92A55BF62</string>
+	<string>6E2A18C0-FAFE-47FE-AF03-2522CA8384C3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BFFC293C-E5A4-4891-A1F6-9AC92A55BF62</string>
+			<string>6E2A18C0-FAFE-47FE-AF03-2522CA8384C3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>BASE</string>
+			<string>base_ios</string>
 		</dict>
 	</array>
 </dict>

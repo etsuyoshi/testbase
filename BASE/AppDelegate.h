@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BSLoginViewController.h"
 #import "AFNetworking.h"
 
 #import "BSBuyTopViewController.h"

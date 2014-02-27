@@ -34,15 +34,17 @@ static NSString *tokenId = nil;
     [application registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeAlert)];
     
     
-    // Optional: automatically send uncaught exceptions to Google Analytics.
+
     [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
-    // Create tracker instance.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-23653112-28"];
-
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    //[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
     
     //NSString *failLog = [[NSUserDefaults standardUserDefaults] stringForKey:@"cart"];
     
@@ -88,10 +90,13 @@ static NSString *tokenId = nil;
     = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo != nil) {
         // ここに処理
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"AppDelegate"
-                                                         withAction:@"pushLaunch"
-                                                          withLabel:nil
-                                                          withValue:@100];
+        
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"AppDelegate"
+                                                              action:@"pushLaunch"
+                                                               label:nil
+                                                               value:nil] build]];
+    
     }
     
     
@@ -136,6 +141,7 @@ static NSString *tokenId = nil;
 {
     application.applicationIconBadgeNumber = 0;
 
+    /*
     NSString *session_id = [BSLoginViewController sessions];
     NSString *url1 = [NSString stringWithFormat:@"http://api.base0.info/users/sign_out?session_id=%@&=",session_id];
     url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -149,6 +155,7 @@ static NSString *tokenId = nil;
         
     }];
     [operation start];
+     */
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
@@ -185,35 +192,16 @@ static NSString *tokenId = nil;
     //if (token)[parameters setObject:[NSString stringWithFormat:@"%@",token] forKey:@"token"];
     deviceToken = [NSString stringWithFormat:@"%@",token];
     
-    NSLog(@"おせてsssssます%@",deviceToken);
-    NSString *urlString = [NSString stringWithFormat:@"%@/push_notifications/settings?token=%@",[BSDefaultViewObject setApiUrl],[NSString stringWithFormat:@"%@",token]];
-    NSLog(@"おせてます%@",urlString);
-    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURL *url1 = [NSURL URLWithString:urlString];
-    NSLog(@"sendProviderDeviceToken%@",url1);
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url1];
-    //NSURLRequest *request = [NSURLRequest requestWithURL:url1];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@""
-                                                      parameters:nil];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"トークンの取得: %@", JSON);
-        tokenId = [JSON valueForKeyPath:@"result.PushNotification.apn_token_id"];
-        NSLog(@"ぷっしゅのいｄ%@",tokenId);
+    [[BSCommonAPIClient sharedClient] getPushNotificationsSettingWithSessionId:nil token:deviceToken curation:2 order:2 completion:^(NSDictionary *results, NSError *error) {
         
-        NSString *errorMessage = [JSON valueForKeyPath:@"error.message"];
+        NSLog(@"getPushNotificationsSettingWithSessionId: %@", results);
+        tokenId = [results valueForKeyPath:@"result.PushNotification.apn_token_id"];
+        NSLog(@"apn_token_id:%@",tokenId);
+        //[self.delegate connectFollowShops];
+        NSString *errorMessage = [results valueForKeyPath:@"error.message"];
         NSLog(@"%@",errorMessage);
-        
-        //BSBuyTopViewController *apnDelegate = [[BSBuyTopViewController alloc]init];
-        //[apnDelegate connectFollowShops];
-
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
-        NSLog(@"Error: %@", error);
-        
     }];
-    [operation start];
+
     
     
 }
@@ -222,31 +210,16 @@ static NSString *tokenId = nil;
 - (void)getApnToken
 {
     
-    NSLog(@"getApnTokenす%@",deviceToken);
-    NSString *urlString = [NSString stringWithFormat:@"%@/push_notifications/settings?token=%@",[BSDefaultViewObject setApiUrl],deviceToken];
-    NSLog(@"おgetApnTokenます%@",urlString);
-    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *url1 = [NSURL URLWithString:urlString];
-    NSLog(@"UgetApnTokenあああ%@",url1);
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url1];
-    //NSURLRequest *request = [NSURLRequest requestWithURL:url1];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@""
-                                                      parameters:nil];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"トークンの取得: %@", JSON);
-        tokenId = [JSON valueForKeyPath:@"result.PushNotification.apn_token_id"];
-        NSLog(@"ぷっしゅのいｄ%@",tokenId);
-        //[self.delegate connectFollowShops];
-        NSString *errorMessage = [JSON valueForKeyPath:@"error.message"];
-        NSLog(@"%@",errorMessage);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
-        NSLog(@"Error: %@", error);
+    [[BSCommonAPIClient sharedClient] getPushNotificationsSettingWithSessionId:nil token:deviceToken curation:2 order:2 completion:^(NSDictionary *results, NSError *error) {
         
+        NSLog(@"getPushNotificationsSettingWithSessionId: %@", results);
+        tokenId = [results valueForKeyPath:@"result.PushNotification.apn_token_id"];
+        NSLog(@"apn_token_id:%@",tokenId);
+        //[self.delegate connectFollowShops];
+        NSString *errorMessage = [results valueForKeyPath:@"error.message"];
+        NSLog(@"%@",errorMessage);
     }];
-    [operation start];
 }
 
 
@@ -254,10 +227,8 @@ static NSString *tokenId = nil;
     
     if (application.applicationState == UIApplicationStateInactive)
     {
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"AppDelegate"
-                                                         withAction:@"pushLaunch"
-                                                          withLabel:nil
-                                                          withValue:@100];
+     
+        
     }
     
     NSString *badge = userInfo[@"badge"];
