@@ -44,7 +44,7 @@ static NSString *tokenId = nil;
     //[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-23653112-28"];
     
     //NSString *failLog = [[NSUserDefaults standardUserDefaults] stringForKey:@"cart"];
     
@@ -52,26 +52,6 @@ static NSString *tokenId = nil;
 
     //ナビゲーションバーのデザイン変更
     [BSDefaultViewObject customNavigationBar:1];
-    
-    /*
-    UIImage *image = [UIImage imageNamed:@"nav_bar.png"];
-    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-     */
-    //[[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:249.0/255.0 green:247.0/255.0 blue:248.0/255.0 alpha:1]];
-    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:1 green:247 blue:248 alpha:1.0]];
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-     
-    /*
-    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [UIColor  grayColor],UITextAttributeTextColor,
-                                               [UIColor clearColor], UITextAttributeTextShadowColor,
-                                               [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
-    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
-     */
-    //NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    //[attributes setValue:[UIColor darkGrayColor] forKey:UITextAttributeTextColor];
-    //[attributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0.0, 0.0)] forKey:UITextAttributeTextShadowOffset];
-    //[[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     
     [[NSURLCache sharedURLCache] setMemoryCapacity:0];
