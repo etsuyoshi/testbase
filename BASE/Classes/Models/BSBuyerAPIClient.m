@@ -278,22 +278,17 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // æ
 - (void)getFollowingShopsWithApiTokenId:(NSString *)apiTokenId uniqueKey:(NSString *)uniqueKey page:(int)page completion:(void (^)(NSDictionary *, NSError *))block
 {
     
-    NSDictionary *parameters = [NSDictionary dictionary];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     
+    parameters[@"page"] = @(page);
     if (apiTokenId) {
-        parameters = @{
-                       @"api_token_id"                 : apiTokenId,
-                       @"unique_key"                   : uniqueKey,
-                       @"page"                          : @(page),
-                       
-                       };
+        parameters[@"api_token_id"] = apiTokenId;
         
-    } else {
-        parameters = @{
-                       @"unique_key"                   : uniqueKey,
-                       @"page"                          : @(page),
-                       
-                       };
+        
+    }
+    if (uniqueKey) {
+        parameters[@"unique_key"] = uniqueKey;
+        
     }
     
     
