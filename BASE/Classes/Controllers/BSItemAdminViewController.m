@@ -430,7 +430,8 @@ static NSString *importItemId = nil;
                 */
                 
             }else{
-            NSLog(@"%@イメージネームーーーーーーーーーーーーーーーーーーーー",imageUrl);
+
+                
                 for (UIView *subview in [cell.contentView subviews]) {
                     [subview removeFromSuperview];
                 }
@@ -478,7 +479,6 @@ static NSString *importItemId = nil;
             //[noImageView1 addSubview:editImageView];
                 
             [noImageView1 addSubview:titleImageView];
-            NSLog(@"ゆーあーるえる%@",url1);
                 
                 AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:getImageRequest];
                 requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
@@ -713,7 +713,7 @@ void exceptionHandler(NSException *exception) {
     // ここで、例外発生時の情報を出力します。
     // NSLog関数でcallStackSymbolsを出力することで、
     // XCODE上で開発している際にも、役立つスタックトレースを取得できるようになります。
-    NSLog(@"aaaaaa%@", exception.name);
+    NSLog(@"exceptionHandler:%@", exception.name);
     NSLog(@"%@", exception.reason);
     NSLog(@"%@", exception.callStackSymbols);
     

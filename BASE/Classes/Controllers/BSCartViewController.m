@@ -441,7 +441,6 @@ static NSDictionary *importCartDictionary = nil;
                     NSLog(@"カートヴァリエーション%@",cartArray);
                     NSDictionary *cartItem = cartArray[x];
                     NSString *cartItemId = cartItem[@"itemId"];
-                    NSLog(@"あいでぃ1%@そのに%@",itemId,cartItemId);
                     if ([itemId isEqualToString:cartItemId]) {
                         NSString *cartVariationName = cartItem[@"variationName"];
                         NSString *cartItemStock = cartItem[@"variationStock"];
@@ -492,7 +491,6 @@ static NSDictionary *importCartDictionary = nil;
             NSString *errormessage = error[@"message"];
             NSString *errormessage1 = [responseObject valueForKeyPath:@"result.Cart.1.error"];
             NSString *deliveryFee = @"0";
-            NSLog(@"えあっっっっｒ%@",errormessage1);
             
             
             //アイテム情報を整理
@@ -1214,7 +1212,7 @@ static NSDictionary *importCartDictionary = nil;
     for (int n = 0; n < shopInfo.count; n++) {
         NSDictionary *itemInfoPath = shopInfo[n];
         NSArray *itemInfo = itemInfoPath[@"itemInfo"];
-        NSLog(@"アイテム情報111%@",itemInfo);
+        NSLog(@"アイテム情報%@",itemInfo);
         for (int s = 0; s < itemInfo.count; s++) {
             NSDictionary *item = itemInfo[s];
             NSString *incVariation = item[@"incVariation"];
@@ -1227,10 +1225,9 @@ static NSDictionary *importCartDictionary = nil;
                 
                 
                 for (int x = 0; x < cartArray.count; x++) {
-                    NSLog(@"カートヴァリエーション%@",cartArray);
+                    NSLog(@"カートバリエーション%@",cartArray);
                     NSDictionary *cartItem = cartArray[x];
                     NSString *cartItemId = cartItem[@"itemId"];
-                    NSLog(@"あいでぃ1%@そのに%@",itemId,cartItemId);
                     
                     if ([itemId isEqualToString:cartItemId]) {
                         NSString *cartVariationName = cartItem[@"variationName"];
@@ -1241,11 +1238,10 @@ static NSDictionary *importCartDictionary = nil;
                             NSString *variationName = itemDict[@"variation"];
                             if ([cartVariationName isEqualToString:variationName]) {
                                 [cartSelectedStockArray addObject:cartItemStock];
-                                NSLog(@"ばりあり現在のストック一覧%@",cartSelectedStockArray);
-                                
+                        
                                 NSString *variationStock = itemDict[@"variationStock"];
                                 [stockArray addObject:variationStock];
-                                NSLog(@"こすううううう%@あんどおおおお%@",stockArray,variationStock);
+                               
                             }
                         }
                     }
@@ -1254,15 +1250,12 @@ static NSDictionary *importCartDictionary = nil;
                 
             }else{
                 [stockArray addObject:stock];
-                NSLog(@"こすううううう%@",stockArray);
                 
                 for (int x = 0; x < cartArray.count; x++) {
-                    NSLog(@"ばりなしカートヴァリエーション%@",cartArray);
                     NSDictionary *cartItem = cartArray[x];
                     NSString *cartItemId = cartItem[@"itemId"];
-                    NSLog(@"ばりなしあいでぃ1%@そのに%@",itemId,cartItemId);
                     if ([itemId isEqualToString:cartItemId]) {
-                        NSLog(@"ばり一覧%@",cartItem);
+
                         NSString *cartVariationStock = cartItem[@"variationStock"];
                         [cartSelectedStockArray addObject:cartVariationStock];
                         
@@ -1500,7 +1493,6 @@ static NSDictionary *importCartDictionary = nil;
 
 //必須項目２：Pickerの行の数を返します。
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    NSLog(@"こすううううう%@",stockArray);
     int rows = 0;
     for (int n = 0; n < buttonSection; n++) {
         rows = rows + [itemRowsArray[n] intValue];
@@ -1566,7 +1558,6 @@ static NSDictionary *importCartDictionary = nil;
                 NSLog(@"カートヴァリエーション%@",cartArray);
                 NSDictionary *cartItem = cartArray[x];
                 NSString *cartItemId = cartItem[@"itemId"];
-                NSLog(@"あいでぃ1%@そのに%@",itemId,cartItemId);
                 if ([itemId isEqualToString:cartItemId]) {
                     NSString *cartVariationName = cartItem[@"variationName"];
                     NSString *cartItemStock = cartItem[@"variationStock"];
@@ -1610,7 +1601,6 @@ static NSDictionary *importCartDictionary = nil;
         NSString *errormessage = error[@"message"];
         NSString *errormessage1 = [responseObject valueForKeyPath:@"result.Cart.1.error"];
         //NSString *deliveryFee = @"0";
-        NSLog(@"えあっっっっｒ%@",errormessage1);
         NSLog(@"Error message: %@", errormessage);
         NSString *versionError = [responseObject valueForKeyPath:@"error.versionError"];
         if ([versionError intValue] == 1) {

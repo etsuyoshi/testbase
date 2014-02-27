@@ -1680,7 +1680,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         static NSString *CellIdentifier = @"shopCell";
         ShopTableViewCell *shopCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!shopCell) {
-            NSLog(@"とおおおおおおおおおおおお");
             shopCell = [[ShopTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             shopCell.selectionStyle = UITableViewCellSelectionStyleNone;
             shopCell.backgroundColor = [UIColor clearColor];
@@ -1787,7 +1786,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             
             NSURLRequest *getImageRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url1]];
             
-            NSLog(@"ゆーあーるえる%@",url1);
             NSLog(@"画像名%@",imageName);
             //UIImageView *nilimage = [UIImageView new];
             
@@ -1984,7 +1982,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        NSLog(@"とおおおおおおおおおおおお");
         cell = [[ShopTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
@@ -2486,7 +2483,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 {
     self.beginScrollOffsetY = [scrollView contentOffset].y;
     categoryViewOffSetY = categoryView.frame.origin.y;
-    NSLog(@"始まり！！！！%f",self.beginScrollOffsetY);
+    NSLog(@"始まり:%f",self.beginScrollOffsetY);
     NSLog(@"categoryViewOffSetY%f",categoryViewOffSetY);
 
     //isOffSetToTop

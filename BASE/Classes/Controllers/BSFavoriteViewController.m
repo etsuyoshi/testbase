@@ -148,12 +148,11 @@ static NSString *importItemId = nil;
         NSDictionary *error = [responseObject valueForKeyPath:@"error"];
         NSString *errormessage = [error valueForKeyPath:@"message"];
         if (errormessage) {
-            NSLog(@"エラー情報っっっっっっっっっっddddddっっっｌ！: %@", errormessage);
             [favoriteTable reloadData];
         }else{
             NSArray *itemArray = responseObject[@"result"];
             imageUrl = responseObject[@"image_url"];
-            NSLog(@"あいてむすう: %d", itemArray.count);
+            NSLog(@"itemArray.count: %d", itemArray.count);
             for (int n = 0; n < itemArray.count; n++) {
                 NSDictionary *itemRoot = itemArray[n];
                 NSDictionary *item = itemRoot[@"Item"];
@@ -286,7 +285,6 @@ static NSString *importItemId = nil;
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Response: %@", responseObject);
-            NSLog(@"つうしんできてるよ");
             
             UIImage *getImage = responseObject;
             
@@ -340,10 +338,7 @@ static NSString *importItemId = nil;
         [nf setCurrencyCode:@"JPY"];
         NSNumber *numPrice = @([itemPriceArray[indexPath.row * 2] intValue]);
         NSString *strPrice = [nf stringFromNumber:numPrice];
-        
-        
-        NSLog(@"文字がおかしいよ%@",strPrice);
-        NSLog(@"文字がおかしいよ%d",strPrice.length);
+    
         cell.leftPriceLabel.text = strPrice;
         
         
@@ -416,8 +411,7 @@ static NSString *importItemId = nil;
             NSString *strPrice = [nf stringFromNumber:numPrice];
             
             
-            NSLog(@"文字がおかしいよ%@",strPrice);
-            NSLog(@"文字がおかしいよ%d",strPrice.length);
+
             cell.rightPriceLabel.text = strPrice;
             
         }
@@ -503,8 +497,7 @@ static NSString *importItemId = nil;
         NSString *strPrice = [nf stringFromNumber:numPrice];
         
         
-        NSLog(@"文字がおかしいよ%@",strPrice);
-        NSLog(@"文字がおかしいよ%d",strPrice.length);
+
         UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(264, 130,52,28)];
         priceLabel.text = strPrice;
         priceLabel.textColor = [UIColor whiteColor];
@@ -569,9 +562,7 @@ static NSString *importItemId = nil;
             NSNumber *numPrice = @([itemPriceArray[indexPath.row * 2 + 1] intValue]);
             NSString *strPrice = [nf stringFromNumber:numPrice];
             
-            
-            NSLog(@"文字がおかしいよ%@",strPrice);
-            NSLog(@"文字がおかしいよ%d",strPrice.length);
+
             UILabel *priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(264, 130,52,28)];
             priceLabel.text = strPrice;
             priceLabel.textColor = [UIColor whiteColor];

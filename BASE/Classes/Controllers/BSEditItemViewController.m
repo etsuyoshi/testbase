@@ -1054,17 +1054,12 @@
     //NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:nil];
     
     //取得した商品情報を表示
-    NSLog(@"jsonnnnnn:%@",JSON);
-    
     imageUrl = [JSON valueForKeyPath:@"image_url"];
     
     NSArray *result = JSON[@"result"];
-    NSLog(@"resultttttttt:%@",result);
     NSDictionary *Item1 = [result valueForKeyPath:@"Item"];
     variationArray = [result valueForKeyPath:@"Variation"];
-    NSLog(@"あいてむうううううう:%@",result);
     NSLog(@"タイトル: %@", Item1);
-    
     
     NSDictionary *detail1 = [Item1 valueForKeyPath:@"detail"];
     NSDictionary *title1 = [Item1 valueForKeyPath:@"title"];
@@ -1659,36 +1654,6 @@
     
     
     
-    
-    /*
-    NSString *session_id = [BSLoginViewController sessions];
-    if (session_id != NULL) {
-        NSString *url = [NSString stringWithFormat:@"http://api.base0.info/items/delete_item?session_id=%@&item_id=%@", session_id, importId];
-        NSLog(@"入っているセッションid%@",session_id);
-        
-        NSURLRequest *getRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        //通信
-        NSData *returnData = [NSURLConnection sendSynchronousRequest: getRequest returningResponse: nil error: nil];
-        if (returnData) {
-            NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:returnData options:NSJSONReadingAllowFragments error:nil];
-            NSLog(@"jsonデータ:%@",jsonObject);
-     
-     
-             jsonItemId = [jsonObject valueForKeyPath:@"result.Item.id"];
-             NSDictionary *errorJson = [jsonObject valueForKeyPath:@"error.validations.Item.stock"];
-             NSLog(@"jsonデータのエラーerrorJson:%@",errorJson);
-             NSString *testJson = [NSString stringWithFormat:@"%@", errorJson];
-             NSLog(@"jsonデータのエラーtestJson:%@",testJson);
-     
-            [SVProgressHUD showSuccessWithStatus:@"商品を削除しました！"];
-            [self dismissViewControllerAnimated:YES completion:NULL];
-        }else{
-            [self dismissViewControllerAnimated:YES completion:NULL];
-            NSLog(@"エラーになりました");
-        }
-        
-    }
-     */
     
 }
 

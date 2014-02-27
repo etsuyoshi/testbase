@@ -440,7 +440,6 @@
         
         NSString *url1 = [NSString stringWithFormat:@"%@%@",results[@"background_url"],[results valueForKeyPath:@"user.User.background"]];
         NSURLRequest *getImageRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url1]];
-        NSLog(@"ゆーあーるえる%@",url1);
         
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:getImageRequest];
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];

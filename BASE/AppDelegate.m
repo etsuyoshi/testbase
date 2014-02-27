@@ -141,21 +141,7 @@ static NSString *tokenId = nil;
 {
     application.applicationIconBadgeNumber = 0;
 
-    /*
-    NSString *session_id = [BSLoginViewController sessions];
-    NSString *url1 = [NSString stringWithFormat:@"http://api.base0.info/users/sign_out?session_id=%@&=",session_id];
-    url1 = [url1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"ゆーあーるえる%@",url1);
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url1]];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"ログイン情報！: %@", JSON);
-        
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
-        NSLog(@"Error: %@", error);
-        
-    }];
-    [operation start];
-     */
+  
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 

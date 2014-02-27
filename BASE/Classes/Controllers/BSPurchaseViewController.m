@@ -906,7 +906,6 @@ static NSDictionary *checkOrderDictionary = nil;
             NSDictionary *error = JSON[@"error"];
             NSString *errormessage = error[@"message"];
             NSString *errormessage1 = [JSON valueForKeyPath:@"result.Cart.1.error"];
-            NSLog(@"えあっっっっｒ%@",errormessage1);
             NSLog(@"Error message: %@", errormessage);
             
             

@@ -97,7 +97,6 @@
     
     
     NSString *urlString = [NSString stringWithFormat:@"%@/push_notifications/settings?token=%@",[BSDefaultViewObject setApiUrl],[AppDelegate getDeviceToken]];
-    NSLog(@"おせてます%@",urlString);
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [[BSCommonAPIClient sharedClient] getPushNotificationsSettingWithSessionId:nil token:[AppDelegate getDeviceToken] curation:2 order:2 completion:^(NSDictionary *results, NSError *error) {

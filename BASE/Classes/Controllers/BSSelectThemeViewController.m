@@ -1269,7 +1269,7 @@
     
     // Change 10.0 to adjust the distance from bottom
     if (maximumOffset - currentOffset <= 30.0) {
-        NSLog(@"したまでいっったよおおおお！！！！");
+        NSLog(@"一番下");
         [UIView animateWithDuration:0.2f
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseOut

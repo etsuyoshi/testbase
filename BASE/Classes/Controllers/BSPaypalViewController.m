@@ -104,7 +104,6 @@
         //NSString *paymenterror = [error objectAtIndex:0];
         //NSString *errormessage = [error objectForKey:@"message"];
         //NSString *errormessage1 = [JSON valueForKeyPath:@"result.Cart.1.error"];
-        //NSLog(@"えあっっっっｒ%@",paymenterror);
         
         //NSLog(@"Error message: %@", errormessage);
         if (!error) {
@@ -129,7 +128,6 @@
             
             [aWebView loadRequest:requestObj];
             NSString *ua = [aWebView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-            NSLog(@"userAgent >>> %@", ua);
             [self.view addSubview:aWebView];
         }else{
             [self.navigationController popViewControllerAnimated:YES];

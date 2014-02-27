@@ -119,11 +119,9 @@ static NSDictionary *presentPaymentInfo = nil;
     NSString *sessionId = [BSUserManager sharedManager].sessionId;
     NSLog(@"セッションid:%@",sessionId);
     NSString *urlString = [NSString stringWithFormat:@"%@/users/get_shop?session_id=%@",apiUrl,sessionId];
-    NSLog(@"おせてます%@",urlString);
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url1 = [NSURL URLWithString:urlString];
-    NSLog(@"URLあああああ%@",url1);
 
     
     [[BSSellerAPIClient sharedClient] getUsersShopWithSessionId:[BSUserManager sharedManager].sessionId completion:^(NSDictionary *results, NSError *error) {

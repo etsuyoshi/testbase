@@ -651,7 +651,6 @@
     NSInteger nextTag = [textField tag] + 1;
     // Try to find next responder
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
-    NSLog(@"%@だよおおおおおお",nextResponder);
     if (textField == bankNameField) {
         // Found next responder, so set it.
         [bankBranchNameField becomeFirstResponder];
@@ -753,7 +752,6 @@
         
         NSString *url = [NSString stringWithFormat:@"%@/savings/apply_to_withdraw",apiUrl];
         url =  [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"ゆあるえる:%@",url);
         NSURL *url1 = [NSURL URLWithString:url];
         
         NSMutableDictionary *parameter = [NSMutableDictionary dictionary];

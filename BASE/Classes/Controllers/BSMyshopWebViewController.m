@@ -36,7 +36,6 @@
     NSString *sessionId = [BSUserManager sharedManager].sessionId;
     NSLog(@"セッションid:%@",sessionId);
     NSString *urlString = [NSString stringWithFormat:@"%@/users/get_shop?session_id=%@",apiUrl,sessionId];
-    NSLog(@"おせてます%@",urlString);
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [[BSSellerAPIClient sharedClient] getUsersShopWithSessionId:[BSUserManager sharedManager].sessionId completion:^(NSDictionary *results, NSError *error) {

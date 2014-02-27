@@ -307,7 +307,6 @@
     }
   
     
-    NSLog(@"あんまり飛ばないよ");
     if (variationArrayCount == indexPath.row) {
         NSString *variationStock;
         variationStock = @"バリエーションを追加";
@@ -319,7 +318,6 @@
         [cell.contentView addSubview:variationStockLabel];
         return;
     }
-    NSLog(@"とんだよ");
     NSString *variationStock = variationStockArray[[indexPath row]];
     NSString *variation = variationNameArray[indexPath.row];
     
