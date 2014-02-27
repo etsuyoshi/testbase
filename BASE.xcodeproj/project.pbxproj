@@ -212,7 +212,6 @@
 		6559FA2718BF408F0067D2D2 /* BSCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9E118BF408F0067D2D2 /* BSCategoryView.m */; };
 		6559FA2818BF408F0067D2D2 /* BSCurationShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9E318BF408F0067D2D2 /* BSCurationShop.m */; };
 		6559FA2918BF408F0067D2D2 /* BSCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9E518BF408F0067D2D2 /* BSCustomButton.m */; };
-		6559FA2A18BF408F0067D2D2 /* BSDefaultViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9E718BF408F0067D2D2 /* BSDefaultViewObject.m */; };
 		6559FA2B18BF408F0067D2D2 /* BSInputAddressTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9E918BF408F0067D2D2 /* BSInputAddressTableView.m */; };
 		6559FA2C18BF408F0067D2D2 /* BSInputFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9EB18BF408F0067D2D2 /* BSInputFormTextField.m */; };
 		6559FA2D18BF408F0067D2D2 /* BSInputTelephoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F9ED18BF408F0067D2D2 /* BSInputTelephoneView.m */; };
@@ -248,6 +247,7 @@
 		6559FA4B18BF408F0067D2D2 /* Triangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559FA1D18BF408F0067D2D2 /* Triangle.m */; };
 		6559FA4C18BF408F0067D2D2 /* UIBarButtonItem+DesignedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559FA1F18BF408F0067D2D2 /* UIBarButtonItem+DesignedButton.m */; };
 		6559FA4D18BF408F0067D2D2 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559FA2118BF408F0067D2D2 /* UIImage+ImageWithUIView.m */; };
+		6559FA5018BF521D0067D2D2 /* BSDefaultViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559FA4F18BF521D0067D2D2 /* BSDefaultViewObject.m */; };
 		655EF110171BE73300C84EB2 /* icon_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 655EF10F171BE73300C84EB2 /* icon_menu@2x.png */; };
 		655EF112171BE73C00C84EB2 /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 655EF111171BE73C00C84EB2 /* icon_menu.png */; };
 		655EF115171C0FE600C84EB2 /* bgi_item.png in Resources */ = {isa = PBXBuildFile; fileRef = 655EF113171C0FDD00C84EB2 /* bgi_item.png */; };
@@ -732,8 +732,6 @@
 		6559F9E318BF408F0067D2D2 /* BSCurationShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSCurationShop.m; sourceTree = "<group>"; };
 		6559F9E418BF408F0067D2D2 /* BSCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSCustomButton.h; sourceTree = "<group>"; };
 		6559F9E518BF408F0067D2D2 /* BSCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSCustomButton.m; sourceTree = "<group>"; };
-		6559F9E618BF408F0067D2D2 /* BSDefaultViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDefaultViewObject.h; sourceTree = "<group>"; };
-		6559F9E718BF408F0067D2D2 /* BSDefaultViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDefaultViewObject.m; sourceTree = "<group>"; };
 		6559F9E818BF408F0067D2D2 /* BSInputAddressTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSInputAddressTableView.h; sourceTree = "<group>"; };
 		6559F9E918BF408F0067D2D2 /* BSInputAddressTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSInputAddressTableView.m; sourceTree = "<group>"; };
 		6559F9EA18BF408F0067D2D2 /* BSInputFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSInputFormTextField.h; sourceTree = "<group>"; };
@@ -792,6 +790,8 @@
 		6559FA1F18BF408F0067D2D2 /* UIBarButtonItem+DesignedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+DesignedButton.m"; sourceTree = "<group>"; };
 		6559FA2018BF408F0067D2D2 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		6559FA2118BF408F0067D2D2 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		6559FA4E18BF521D0067D2D2 /* BSDefaultViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDefaultViewObject.h; sourceTree = "<group>"; };
+		6559FA4F18BF521D0067D2D2 /* BSDefaultViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDefaultViewObject.m; sourceTree = "<group>"; };
 		655EF10F171BE73300C84EB2 /* icon_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_menu@2x.png"; sourceTree = "<group>"; };
 		655EF111171BE73C00C84EB2 /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
 		655EF113171C0FDD00C84EB2 /* bgi_item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgi_item.png; sourceTree = "<group>"; };
@@ -1466,6 +1466,8 @@
 		6559F93518BF402B0067D2D2 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				6559FA4E18BF521D0067D2D2 /* BSDefaultViewObject.h */,
+				6559FA4F18BF521D0067D2D2 /* BSDefaultViewObject.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -1646,8 +1648,6 @@
 				6559F9E318BF408F0067D2D2 /* BSCurationShop.m */,
 				6559F9E418BF408F0067D2D2 /* BSCustomButton.h */,
 				6559F9E518BF408F0067D2D2 /* BSCustomButton.m */,
-				6559F9E618BF408F0067D2D2 /* BSDefaultViewObject.h */,
-				6559F9E718BF408F0067D2D2 /* BSDefaultViewObject.m */,
 				6559F9E818BF408F0067D2D2 /* BSInputAddressTableView.h */,
 				6559F9E918BF408F0067D2D2 /* BSInputAddressTableView.m */,
 				6559F9EA18BF408F0067D2D2 /* BSInputFormTextField.h */,
@@ -2193,7 +2193,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6559FA2A18BF408F0067D2D2 /* BSDefaultViewObject.m in Sources */,
 				65F3827818B1E79100B127A2 /* BSBuyerAPIClient.m in Sources */,
 				6559FA3C18BF408F0067D2D2 /* BSShopFooterView.m in Sources */,
 				6559F9AF18BF406D0067D2D2 /* BSConfirmCheckoutViewController.m in Sources */,
@@ -2273,6 +2272,7 @@
 				6559FA2B18BF408F0067D2D2 /* BSInputAddressTableView.m in Sources */,
 				6559FA4518BF408F0067D2D2 /* ItemTableViewCell.m in Sources */,
 				6559F9C018BF406E0067D2D2 /* BSMoneyHistoryViewController.m in Sources */,
+				6559FA5018BF521D0067D2D2 /* BSDefaultViewObject.m in Sources */,
 				6559FA3518BF408F0067D2D2 /* BSItemsView.m in Sources */,
 				6559FA3118BF408F0067D2D2 /* BSItemImageView.m in Sources */,
 				6559FA4118BF408F0067D2D2 /* FollowShopTableViewCell.m in Sources */,
