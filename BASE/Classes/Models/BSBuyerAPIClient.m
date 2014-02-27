@@ -318,24 +318,18 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // æ
 - (void)getFollowingShopsItemsWithApiTokenId:(NSString *)apiTokenId uniqueKey:(NSString *)uniqueKey page:(int)page completion:(void (^)(NSDictionary *, NSError *))block
 {
     
-    NSDictionary *parameters = [NSDictionary dictionary];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     
+    parameters[@"page"] = @(page);
     if (apiTokenId) {
-        parameters = @{
-            @"api_token_id"                 : apiTokenId,
-            @"unique_key"                   : uniqueKey,
-            @"page"                          : @(page),
-            
-        };
+        parameters[@"api_token_id"] = apiTokenId;
 
-    } else {
-        parameters = @{
-                       @"unique_key"                   : uniqueKey,
-                       @"page"                          : @(page),
-                       
-                       };
+        
     }
-    
+    if (uniqueKey) {
+        parameters[@"unique_key"] = uniqueKey;
+
+    }
     [self GET:@"/following_shops/get_shop_items"
    parameters:parameters
       success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -356,22 +350,18 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // æ
 {
     
     
-    NSDictionary *parameters = [NSDictionary dictionary];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    parameters[@"user_id"] = userId;
     
     if (apiTokenId) {
-        parameters = @{
-                       @"api_token_id"                 : apiTokenId,
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        parameters[@"api_token_id"] = apiTokenId;
         
-    } else {
-        parameters = @{
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        
+    }
+    if (uniqueKey) {
+        parameters[@"unique_key"] = uniqueKey;
+        
     }
     
     [self GET:@"/following_shops/follow"
@@ -393,23 +383,20 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // æ
 - (void)getUnfollowShopWithApiTokenId:(NSString *)apiTokenId uniqueKey:(NSString *)uniqueKey userId:(NSString *)userId completion:(void (^)(NSDictionary *, NSError *))block
 {
     
-    NSDictionary *parameters = [NSDictionary dictionary];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    parameters[@"user_id"] = userId;
     
     if (apiTokenId) {
-        parameters = @{
-                       @"api_token_id"                 : apiTokenId,
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        parameters[@"api_token_id"] = apiTokenId;
         
-    } else {
-        parameters = @{
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        
     }
+    if (uniqueKey) {
+        parameters[@"unique_key"] = uniqueKey;
+        
+    }
+    
     
     [self GET:@"/following_shops/follow"
    parameters:parameters
@@ -430,23 +417,20 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // æ
 - (void)getCheckFollowShopWithApiTokenId:(NSString *)apiTokenId uniqueKey:(NSString *)uniqueKey userId:(NSString *)userId completion:(void (^)(NSDictionary *, NSError *))block
 {
     
-    NSDictionary *parameters = [NSDictionary dictionary];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    parameters[@"user_id"] = userId;
     
     if (apiTokenId) {
-        parameters = @{
-                       @"api_token_id"                 : apiTokenId,
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        parameters[@"api_token_id"] = apiTokenId;
         
-    } else {
-        parameters = @{
-                       @"unique_key"                   : uniqueKey,
-                       @"user_id"                         : userId,
-                       
-                       };
+        
     }
+    if (uniqueKey) {
+        parameters[@"unique_key"] = uniqueKey;
+        
+    }
+    
     
     [self GET:@"/following_shops/follow"
    parameters:parameters
