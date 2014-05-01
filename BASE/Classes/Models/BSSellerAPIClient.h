@@ -408,6 +408,15 @@
  */
 - (void)getOrdersChangeDispathcStatusWithSessionId:(NSString *)sessionId orderId:(NSString *)orderId status:(NSString *)status completion:(void (^)(NSDictionary *results, NSError *error))block;
 
+/** 発送ステータス変更メッセージの取得
+ 
+ @param sessionId セッション.
+ @param orderId 注文ID.
+ @param status  dispatched : 発送完了, cancelled : キャンセル.
+ 
+ @param block 完了時に呼び出される blocks.
+ */
+- (void)getChangingStatusMessageWithSessionId:(NSString *)sessionId orderId:(NSString *)orderId status:(NSString *)status completion:(void (^)(NSDictionary *results, NSError *error))block;
 
 
 #pragma mark - Savings
@@ -436,6 +445,21 @@
  */
 - (void)postSavingsApplyToWithdrawWithSessionId:(NSString *)sessionId bankName:(NSString *)bankName branchName:(NSString *)branchName accountType:(NSString *)accountType accountName:(NSString *)accountName accountNumber:(NSString *)accountNumber drawings:(NSString *)drawings password:(NSString *)password completion:(void (^)(NSDictionary *results, NSError *error))block;
 
+#pragma mark - Banks
+///---------------------------------------------------------------------------------------
+/// @name Banks
+///---------------------------------------------------------------------------------------
+
+/** 全銀行情報取得
+ 
+ @param block 完了時に呼び出される blocks.
+ */
+- (void)getAllBanksWithSessionId:(NSString *)sessionId completion:(void (^)(NSDictionary *results, NSError *error))block;
+/** 全支店情報取得
+ 
+ @param block 完了時に呼び出される blocks.
+ */
+- (void)getAllBankBranchesWithSessionId:(NSString *)sessionId bankCode:(NSString *)bankCode completion:(void (^)(NSDictionary *results, NSError *error))block;
 
 #pragma mark - Inquiries
 ///---------------------------------------------------------------------------------------
@@ -462,5 +486,8 @@
  
  */
 - (void)getAboutsCompletion:(void (^)(NSDictionary *results, NSError *error))block;
+
+
+
 
 @end

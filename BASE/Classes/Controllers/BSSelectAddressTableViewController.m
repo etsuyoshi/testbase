@@ -153,7 +153,7 @@
             UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"in.thebase"];
             NSDictionary *decodeDictionary;
             if (indexPath.row == 0) {
-
+                
                 decodeDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:[store dataForKey:@"firstUserAddress"]];
                 
                 cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",decodeDictionary[@"lastName"], decodeDictionary[@"firstName"]];
@@ -161,7 +161,7 @@
                 cell.zipcodeLabel.text = [NSString stringWithFormat:@"〒%@",decodeDictionary[@"zipcode"]];
                 
                 cell.addressLabel.text = [NSString stringWithFormat:@"%@%@%@",decodeDictionary[@"prefecture"] , decodeDictionary[@"address"], decodeDictionary[@"detailAddress"]];
-            
+                
                 
             } else {
                 decodeDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:[store dataForKey:@"secondUserAddress"]];
@@ -178,6 +178,7 @@
         return cell;
 
     } else {
+        
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
@@ -214,21 +215,11 @@
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
-                if (firstCellOpened) {
-                    return 170;
+                return 170;
                     
-                } else {
-                    return 92;
-                    
-                }
             } else {
-                if (secondCellOpened) {
-                    return 170;
-                    
-                } else {
-                    return 92;
-                    
-                }
+                return 170;
+                
             }
             break;
         case 1:

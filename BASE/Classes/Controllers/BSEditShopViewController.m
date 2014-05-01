@@ -410,21 +410,13 @@
     
     [[BSSellerAPIClient sharedClient] getDesignThemeWithSessionId:[BSUserManager sharedManager].sessionId completion:^(NSDictionary *results, NSError *error) {
         
-        NSLog(@"getDesignThemeWithSessionId！: %@", results);
-        NSString *defaultView = [results valueForKeyPath:@"user.User.default_view"];
+        NSString *themeName = results[@"theme"];
+        NSString *themeBaseURL = results[@"theme_url"];
+        NSLog(@"%@%@", themeBaseURL, themeName);
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", themeBaseURL, themeName]];
+        [BgImage1 setImageWithURL:url placeholderImage:nil options:SDWebImageCacheMemoryOnly];
         [ai2 stopAnimating];
-        
-        
-        
-        for (int n = 1; n < 10; n++) {
-            if ([defaultView isEqualToString:[NSString stringWithFormat:@"shop"]]) {
-                [BgImage1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shop_1"]]];
-                break;
-            }
-            if ([defaultView isEqualToString:[NSString stringWithFormat:@"shop_0%d",n - 1]]) {
-                [BgImage1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"shop_%d",n]]];
-            }
-        }
+
         
     }];
     

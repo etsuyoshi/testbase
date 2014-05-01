@@ -10,6 +10,9 @@
 
 #import "BSSalesCounterView.h"
 #import "BSBalanceView.h"
+#import "BSBank.h"
+#import "BSBankIndexTableViewController.h"
+#import "BSMoneyManager.h"
 
 
 
@@ -70,7 +73,10 @@
     
     
     [self setMoneyInfo];
-
+    
+    BSBank *bank = [BSMoneyManager sharedManager].bank;
+    bankNameField.text = bank.bankName;
+    bankBranchNameField.text = bank.branchName;
     
 }
 
@@ -356,6 +362,7 @@
     bankNameField.placeholder = @"例:○○銀行";
     bankNameField.delegate = self;
     bankNameField.text = @"";
+    bankNameField.enabled = NO;
     [bankNameField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     bankNameField.textAlignment = NSTextAlignmentRight;
     bankNameField.backgroundColor = [UIColor clearColor];
@@ -365,9 +372,13 @@
     bankBranchNameField.placeholder = @"例:○○支店";
     bankBranchNameField.delegate = self;
     bankBranchNameField.text = @"";
+    bankBranchNameField.enabled = NO;
     [bankBranchNameField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     bankBranchNameField.textAlignment = NSTextAlignmentRight;
     bankBranchNameField.backgroundColor = [UIColor clearColor];
+    
+    
+
     
     bankVaryField = [[UITextField alloc] initWithFrame:CGRectMake(100.0, 0, 200.0, 44.0)];
     bankVaryField.returnKeyType = UIReturnKeyNext;
@@ -572,7 +583,7 @@
     if (tableView == bankInfoTable) {
         if (indexPath.section == 0) {
             NSArray *contentArray = @[@"銀行名",@"支店名"];
-            cell.textLabel.text = contentArray[[indexPath row]];
+            cell.textLabel.text = contentArray[indexPath.row];
             cell.textLabel.textColor = [UIColor grayColor];
             if (indexPath.row == 0) {
                 
@@ -583,7 +594,7 @@
             }
         }else if(indexPath.section == 1){
             NSArray *contentArray = @[@"口座種別",@"口座名義",@"口座番号"];
-            cell.textLabel.text = contentArray[[indexPath row]];
+            cell.textLabel.text = contentArray[indexPath.row];
             cell.textLabel.textColor = [UIColor grayColor];
             
             cell.textLabel.textColor = [UIColor grayColor];
@@ -676,17 +687,29 @@
     NSLog(@"%d:番目が押されているよ！",indexPath.row);
     if (tableView == historyTable) {
         
-    if (indexPath.row == 0) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"history"];
-        [self.navigationController pushViewController:vc animated:YES];
+        if (indexPath.row == 0) {
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"history"];
+            [self.navigationController pushViewController:vc animated:YES];
         
         /*
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"キャンセル" destructiveButtonTitle:nil otherButtonTitles:@"未発送",@"発送済",nil];
         actionSheet.tag = 1;
         [actionSheet showInView:self.view];
          */
+        }
+    } else if (indexPath.section == 0) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            BSBankIndexTableViewController *vc = [[BSBankIndexTableViewController alloc] initWithStyle:UITableViewStyleGrouped bankCode:0 bankName:@""];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+            /*
+             UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"キャンセル" destructiveButtonTitle:nil otherButtonTitles:@"未発送",@"発送済",nil];
+             actionSheet.tag = 1;
+             [actionSheet showInView:self.view];
+             */
+        }
     }
-    }
+    ;
     /*
      UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"orderDtails"];
      [self.navigationController pushViewController:vc animated:YES];

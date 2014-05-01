@@ -9,10 +9,10 @@
 #import "BSBuyerAPIClient.h"
 
 
-static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
+// static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
 // static NSString * const kBSAPIBaseURLString = @"http://dt.base0.info";      // ステージング
 // static NSString * const kBSAPIBaseURLString = @"http://api.base0.info";     // テスト
-// static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
+static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
 // static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 反社チェック用
 
 

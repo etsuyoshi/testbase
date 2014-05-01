@@ -3960,41 +3960,90 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)goSell{
     
     
-    UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"in.thebase"];
-    
-    NSLog(@"[store stringForKeyEm:%@",[store stringForKey:@"email"]);
-    NSLog(@"[store stringForKeyPs%@",[store stringForKey:@"password"]);
-    NSString *email = [store stringForKey:@"email"];
-    
-    NSLog(@"goSellgoSell:email:%@",email);
-    if (!email) {
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"init"];
-        vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:vc animated:YES completion: ^{
-            NSLog(@"goSell:完了");
-        }];
-    } else {
-        
-        [[BSUserManager sharedManager] autoSignInWithBlock:^(NSError *error) {
+    [[BSCommonAPIClient sharedClient] getCheckVersionWithUserType:@"seller" completion:^(NSDictionary *results, NSError *error) {
+        NSLog(@"getCheckVersionWithUserType:%@",results);
+
+        NSString *isStabel = results[@"result"][@"is_stable"];
+        NSString *message = results[@"result"][@"message"];
+        if ([isStabel intValue] == 0) {
             
-           
-            [[BSCommonAPIClient sharedClient] getPushNotificationsSettingWithSessionId:[BSUserManager sharedManager].sessionId token:[AppDelegate getDeviceToken] curation:2 order:2 completion:^(NSDictionary *results, NSError *error) {
-                
-                
+            UIAlertView *alert = [[UIAlertView alloc] init];
+            alert.title = @"お知らせ";
+            alert.delegate = self;
+            alert.message = message;
+            [alert addButtonWithTitle:@"確認"];
+            [alert show];
+            
+        } else {
+            
+            
+            
+            UICKeyChainStore *store = [UICKeyChainStore keyChainStoreWithService:@"in.thebase"];
+            
+            NSLog(@"[store stringForKeyEm:%@",[store stringForKey:@"email"]);
+            NSLog(@"[store stringForKeyPs%@",[store stringForKey:@"password"]);
+            NSString *email = [store stringForKey:@"email"];
+            
+            NSLog(@"goSellgoSell:email:%@",email);
+            if (!email) {
                 UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"init"];
                 vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
                 [self presentViewController:vc animated:YES completion: ^{
                     NSLog(@"goSell:完了");
                 }];
+            } else {
                 
-            }];
+                [[BSUserManager sharedManager] autoSignInWithBlock:^(NSError *error) {
+                    
+                    
+                    [[BSCommonAPIClient sharedClient] getPushNotificationsSettingWithSessionId:[BSUserManager sharedManager].sessionId token:[AppDelegate getDeviceToken] curation:2 order:2 completion:^(NSDictionary *results, NSError *error) {
+                        
+                        
+                        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"init"];
+                        vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                        [self presentViewController:vc animated:YES completion: ^{
+                            NSLog(@"goSell:完了");
+                        }];
+                        
+                    }];
+                    
+                    
+                }];
+            }
             
-            
-        }];
+        }
+    }];
+    
+    
+    
+    
+    
+    
+}
+
+
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView*)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    switch (buttonIndex) {
+        case 0:
+            [self openAppStore];
+            break;
+        case 1:
+            //２番目のボタンが押されたときの処理を記述する
+            break;
     }
     
-    
-    
+}
+
+- (void)openAppStore
+{
+    NSString *urlString = @"https://itunes.apple.com/jp/app/sumahode-jian-danshoppingu/id661263905?mt=8";
+    NSURL *url= [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 

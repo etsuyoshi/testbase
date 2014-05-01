@@ -144,7 +144,6 @@ static NSDictionary *presentPaymentInfo = nil;
             
             //メール認証
             if (available){
-                openSwitch.on = NO;
                 openSwitch.enabled = YES;
                 visible = YES;
             }else{

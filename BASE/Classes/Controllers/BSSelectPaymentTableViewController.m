@@ -95,6 +95,7 @@ static NSDictionary *importOrderDictionary = nil;
         } else {
             addressDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:[store dataForKey:@"secondUserAddress"]];
         }
+        NSLog(@"addressDictionary:%@", addressDictionary);
     }
     return self;
 }
@@ -115,15 +116,16 @@ static NSDictionary *importOrderDictionary = nil;
     
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/cart/get_order_details/",baseURL]];
+    NSLog(@"urlurlurl:%@", url);
     // don't forget to set parameterEncoding!
     NSDictionary *cartParameters = [orderItem copy];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSLog(@"cartParameters:%@",cartParameters);
     [manager POST:[url absoluteString] parameters:cartParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
-        NSLog(@"注文内容の取得: %@", responseObject);
+        NSLog(@"cart/get_order_detail得: %@", responseObject);
         NSDictionary *error = responseObject[@"error"];
         NSString *errormessage = error[@"message"];
         //NSString *errormessage1 = [JSON valueForKeyPath:@"result.Cart.1.error"];
@@ -355,6 +357,28 @@ static NSDictionary *importOrderDictionary = nil;
 }
 
 
+- (UIView *)tableView:(UITableView *)tblView viewForHeaderInSection:(NSInteger)section {
+    
+    UINib *nib = [UINib nibWithNibName:@"BSPaymentCompanyImageView" bundle:nil];
+    UIView *view = [nib instantiateWithOwner:self options:nil][0];
+    view.frame = CGRectMake(300, 0, view.frame.size.width, view.frame.size.height);
+    
+    switch (section) {
+        case 0:
+            return nil;
+            break;
+        case 1:
+            return view;
+            break;
+            
+        default:
+            return nil;
+
+            break;
+    }
+}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.section == 0) {
@@ -567,7 +591,7 @@ static NSDictionary *importOrderDictionary = nil;
         NSDictionary *cartParameters = [cartDict copy];
 
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        //manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager POST:[url absoluteString] parameters:cartParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
             
@@ -680,7 +704,6 @@ static NSDictionary *importOrderDictionary = nil;
         NSDictionary *cartParameters = [cartDict copy];
 
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager POST:[url absoluteString] parameters:cartParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"注文内容の取得: %@", responseObject);
             NSDictionary *error = responseObject[@"error"];
@@ -779,7 +802,6 @@ static NSDictionary *importOrderDictionary = nil;
         NSDictionary *cartParameters = [cartDict copy];
 
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager POST:[url absoluteString] parameters:cartParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"注文内容の取得: %@", responseObject);
             NSDictionary *error = responseObject[@"error"];
@@ -873,7 +895,6 @@ static NSDictionary *importOrderDictionary = nil;
 
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager POST:[url absoluteString] parameters:cartParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"注文内容の取得: %@", responseObject);
             NSDictionary *error = responseObject[@"error"];

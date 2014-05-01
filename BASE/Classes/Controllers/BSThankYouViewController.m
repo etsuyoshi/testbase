@@ -22,6 +22,8 @@
     NSString *boughtShopId;
     
     NSString *apiUrl;
+    
+    NSString *_thanksMessage;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -96,6 +98,8 @@
         facebookContent = [responseObject valueForKeyPath:@"result.facebook_content"];
         shopUrl = [responseObject valueForKeyPath:@"shop_url"];
         boughtShopId = [responseObject valueForKeyPath:@"result.id"];
+        
+        _thanksMessage = [responseObject valueForKeyPath:@"result.message"];
         [self deleteCartItem];
         //ロゴがあるorない場合のビュー
         if ([logoTitle isEqual:[NSNull null]] || [logoTitle isEqualToString:@""]) {
@@ -121,7 +125,7 @@
     aboutLabel.textColor = [UIColor darkGrayColor];
     aboutLabel.backgroundColor = [UIColor clearColor];
     aboutLabel.font = [UIFont boldSystemFontOfSize:16];
-    [aboutLabel setText:@"ご購入ありがとうございました！\nまたの機会をお待ちしております。"];
+    [aboutLabel setText:@"購入ありがとうございます！"];
     [aboutLabel setLineBreakMode:NSLineBreakByWordWrapping];
     [aboutLabel setNumberOfLines:0];
     [aboutLabel sizeToFit];
@@ -136,7 +140,7 @@
         checkLabel.textColor = [UIColor grayColor];
         checkLabel.backgroundColor = [UIColor clearColor];
         checkLabel.font = [UIFont boldSystemFontOfSize:12];
-        [checkLabel setText:@"ご記入いただいたメールアドレスの方にご控えメールをお送りしておりますので御確認下さい。\nクレジットカードの利用明細にはPAYPAL*BASE SHOPと記載されます。来ていない場合は迷惑メールフォルダを御覧下さい。"];
+        [checkLabel setText:_thanksMessage];
         [checkLabel setLineBreakMode:NSLineBreakByWordWrapping];
         [checkLabel setNumberOfLines:0];
         checkLabel.center = CGPointMake(160, (aboutLabel.frame.origin.y + aboutLabel.frame.size.height) + 60);
@@ -254,7 +258,6 @@
 {
     UIImageView *shopImageView = [[UIImageView alloc] initWithImage:nil];
     shopImageView.contentMode = UIViewContentModeScaleToFill;
-    [scrollView addSubview:shopImageView];
     NSString *logoUrl = JSON[@"logo_url"];
     NSString *logoTitle = [JSON valueForKeyPath:@"result.logo"];
     
@@ -266,8 +269,8 @@
     
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:getImageRequest];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
-    requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"image/pjpeg"];
-    requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"image/x-png"];
+    //requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"image/pjpeg"];
+    //requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"image/x-png"];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Response: %@", responseObject);
         
@@ -288,16 +291,19 @@
             shopImageView.contentMode = UIViewContentModeCenter;
             
         }
+        [scrollView addSubview:shopImageView];
+
+        
         //店舗の説明
         UILabel *aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,(shopImageView.frame.origin.y + shopImageView.frame.size.height) + 10,300,80)];
         aboutLabel.textColor = [UIColor darkGrayColor];
         aboutLabel.backgroundColor = [UIColor clearColor];
         aboutLabel.font = [UIFont boldSystemFontOfSize:16];
-        [aboutLabel setText:@"ご購入ありがとうございました！\nまたの機会をお待ちしております。"];
+        [aboutLabel setText:@"ご購入ありがとうございます！"];
         [aboutLabel setLineBreakMode:NSLineBreakByWordWrapping];
         [aboutLabel setNumberOfLines:0];
         [aboutLabel sizeToFit];
-        aboutLabel.center = CGPointMake(160, (shopImageView.frame.origin.y + shopImageView.frame.size.height) + 30);
+        aboutLabel.center = CGPointMake(160, aboutLabel.center.y);
         [scrollView addSubview:aboutLabel];
         
         NSString *payment = [BSConfirmCheckoutViewController getPayment];
@@ -308,7 +314,7 @@
             checkLabel.textColor = [UIColor grayColor];
             checkLabel.backgroundColor = [UIColor clearColor];
             checkLabel.font = [UIFont boldSystemFontOfSize:12];
-            [checkLabel setText:@"ご記入いただいたメールアドレスの方にご控えメールをお送りしておりますので御確認下さい。\nクレジットカードの利用明細にはPAYPAL*BASE SHOPと記載されます。着ていない場合は迷惑メールフォルダを御覧下さい。"];
+            [checkLabel setText:_thanksMessage];
             [checkLabel setLineBreakMode:NSLineBreakByWordWrapping];
             [checkLabel setNumberOfLines:0];
             checkLabel.center = CGPointMake(160, (aboutLabel.frame.origin.y + aboutLabel.frame.size.height) + 60);

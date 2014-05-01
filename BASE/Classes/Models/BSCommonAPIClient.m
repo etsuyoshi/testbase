@@ -8,10 +8,10 @@
 
 #import "BSCommonAPIClient.h"
 
-// static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
-static NSString * const kBSAPIBaseURLString = @"http://dt.base0.info";      // ステージング
-// static NSString * const kBSAPIBaseURLString = @"http://api.base0.info";     // テスト
-// static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
+//static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
+// static NSString * const kBSAPIBaseURLString = @"http://dt.base0.info";      // ステージング
+ //static NSString * const kBSAPIBaseURLString = @"http://api.base0.info";     // テスト
+static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
 // static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 反社チェック用
 
 
@@ -102,6 +102,38 @@ static NSString * const kBSAPIBaseURLString = @"http://dt.base0.info";      // �
           }
       }];
     
+    
+}
+
+
+#pragma mark - Version
+///---------------------------------------------------------------------------------------
+/// @name Version
+///---------------------------------------------------------------------------------------
+
+
+- (void)getCheckVersionWithUserType:(NSString *)userType completion:(void (^)(NSDictionary *, NSError *))block
+{
+    
+    NSString* version =  [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+
+    [self GET:@"/stable_versions/check_version"
+   parameters:@{
+                @"user_type"           : userType,
+                @"version"                : version,
+                }
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          if (block) block(responseObject, nil);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          // 401 が返ったときログインが必要.
+          if (((NSHTTPURLResponse *)task.response).statusCode == 401) {
+              if (block) block(nil, nil);
+          }
+          else {
+              if (block) block(nil, error);
+          }
+      }];
     
 }
 

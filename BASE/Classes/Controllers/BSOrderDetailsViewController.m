@@ -37,6 +37,10 @@
     NSArray *orderItemsArray;
     
     int orderItemId;
+    
+    NSString *status;
+    
+    
 
 }
 @synthesize importId;
@@ -555,7 +559,6 @@
 //アクションシートの分岐
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSString *status;
     if (actionSheet.tag == 2) {
         switch (buttonIndex) {
                 /*
@@ -600,28 +603,63 @@
          */
         //NSDictionary *orderListDict = [order valueForKeyPath:@"Order"];
         
-        [[BSSellerAPIClient sharedClient] getOrdersChangeDispathcStatusWithSessionId:[BSUserManager sharedManager].sessionId orderId:[NSString stringWithFormat:@"%d",orderItemId] status:status completion:^(NSDictionary *results, NSError *error) {
-        
-            NSLog(@"getOrdersChangeDispathcStatusWithSessionId: %@", results);
-            [SVProgressHUD showSuccessWithStatus:@"ステータス変更しました"];
+        [[BSSellerAPIClient sharedClient] getChangingStatusMessageWithSessionId:[BSUserManager sharedManager].sessionId orderId:[NSString stringWithFormat:@"%d",orderItemId] status:status completion:^(NSDictionary *results, NSError *error) {
+            
+            NSLog(@"getChangingStatusMessageWithSessionId: %@", results);
+            
+            NSString *messageString = results[@"result"][@"message"];
+            // １行で書くタイプ（複数ボタンタイプ）
+            UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle:@"確認" message:messageString
+                                      delegate:self cancelButtonTitle:@"いいえ" otherButtonTitles:@"はい", nil];
+            [alert show];
 
-            [[BSSellerAPIClient sharedClient] getOrderHeadersOrderWithSessionId:[BSUserManager sharedManager].sessionId uniqueKey:importId completion:^(NSDictionary *results, NSError *error) {
-                
-                NSLog(@"getOrderHeadersOrderWithSessionId: %@", results);
-                orderItemsArray = [results valueForKeyPath:@"result.Order"];
-                ordersDict = [results valueForKeyPath:@"result"];
-
-                NSLog(@"status: %@",status);
-  
-                
-                [orderDetailsTable reloadData];
-                
-            }];
+            
             
         }];
+        
+        
     }
 }
 
+// アラートのボタンが押された時に呼ばれるデリゲート例文
+-(void)alertView:(UIAlertView*)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0:
+            [SVProgressHUD dismiss];
+            break;
+        case 1:
+            [self changeDispatch];
+            break;
+    }
+    
+}
+
+- (void)changeDispatch
+{
+    
+    [[BSSellerAPIClient sharedClient] getOrdersChangeDispathcStatusWithSessionId:[BSUserManager sharedManager].sessionId orderId:[NSString stringWithFormat:@"%d",orderItemId] status:status completion:^(NSDictionary *results, NSError *error) {
+        
+        NSLog(@"getOrdersChangeDispathcStatusWithSessionId: %@", results);
+        [SVProgressHUD showSuccessWithStatus:@"ステータス変更しました"];
+        
+        [[BSSellerAPIClient sharedClient] getOrderHeadersOrderWithSessionId:[BSUserManager sharedManager].sessionId uniqueKey:importId completion:^(NSDictionary *results, NSError *error) {
+            
+            NSLog(@"getOrderHeadersOrderWithSessionId: %@", results);
+            orderItemsArray = [results valueForKeyPath:@"result.Order"];
+            ordersDict = [results valueForKeyPath:@"result"];
+            
+            NSLog(@"status: %@",status);
+            
+            
+            [orderDetailsTable reloadData];
+            
+        }];
+        
+    }];
+}
 // Update Cells
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath updateTableView:(UITableView *)tableView{
     

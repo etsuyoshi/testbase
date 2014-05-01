@@ -708,7 +708,7 @@ static NSString *importItemId = nil;
 
 @end
 
-
+/*
 void exceptionHandler(NSException *exception) {
     // ここで、例外発生時の情報を出力します。
     // NSLog関数でcallStackSymbolsを出力することで、
@@ -719,16 +719,17 @@ void exceptionHandler(NSException *exception) {
     
     // ログをUserDefaultsに保存しておく。
     // 次の起動の際に存在チェックすれば、前の起動時に異常終了したことを検知できます。
-    /*
+    
      NSString *log = [NSString stringWithFormat:@"%@, %@, %@", exception.name, exception.reason, exception.callStackSymbols];
      [[NSUserDefaults standardUserDefaults] setValue:log forKey:@"failLog"];
      NSString *failLog = [[NSUserDefaults standardUserDefaults] stringForKey:@"failLog"];
      NSLog(@"かーーーーとおちた%@",failLog);
-     */
     
-    /*
+    
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];  // 取得
     [ud removeObjectForKey:@"cart"];
     [ud synchronize];
-    */
+    
 }
+ */

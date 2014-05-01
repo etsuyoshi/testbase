@@ -8,10 +8,10 @@
 
 #import "BSSellerAPIClient.h"
 
-static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
+//static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 本番環境
 // static NSString * const kBSAPIBaseURLString = @"http://dt.base0.info";      // ステージング
 // static NSString * const kBSAPIBaseURLString = @"http://api.base0.info";     // テスト
-// static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
+ static NSString * const kBSAPIBaseURLString = @"http://api.n-base.info";    // テスト
 // static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // 反社チェック用
 
 
@@ -712,6 +712,55 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // �
       }];
 }
 
+#pragma mark - Banks
+///---------------------------------------------------------------------------------------
+/// @name Banks
+///---------------------------------------------------------------------------------------
+- (void)getAllBanksWithSessionId:(NSString *)sessionId completion:(void (^)(NSDictionary *results, NSError *error))block;
+{
+    
+    [self GET:@"/banks/get_all_banks"
+   parameters:@{
+                @"session_id"         : sessionId
+                }
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          if (block) block(responseObject, nil);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          // 401 が返ったときログインが必要.
+          if (((NSHTTPURLResponse *)task.response).statusCode == 401) {
+              if (block) block(nil, nil);
+          }
+          else {
+              if (block) block(nil, error);
+          }
+      }];
+}
+
+- (void)getAllBankBranchesWithSessionId:(NSString *)sessionId bankCode:(NSString *)bankCode completion:(void (^)(NSDictionary *results, NSError *error))block
+{
+    
+    
+    [self GET:@"banks/get_all_branches"
+   parameters:@{
+                @"session_id"   : sessionId,
+                @"bank_code"    : bankCode
+                }
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          if (block) block(responseObject, nil);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          // 401 が返ったときログインが必要.
+          if (((NSHTTPURLResponse *)task.response).statusCode == 401) {
+              if (block) block(nil, nil);
+          }
+          else {
+              if (block) block(nil, error);
+          }
+      }];
+    
+    
+}
 
 #pragma mark - Data
 ///---------------------------------------------------------------------------------------
@@ -904,6 +953,32 @@ static NSString * const kBSAPIBaseURLString = @"https://dt.thebase.in";     // �
       }];
     
 }
+
+
+- (void)getChangingStatusMessageWithSessionId:(NSString *)sessionId orderId:(NSString *)orderId status:(NSString *)status completion:(void (^)(NSDictionary *, NSError *))block
+{
+    
+    [self GET:@"/orders/get_changing_status_message"
+   parameters:@{
+                @"session_id"         : sessionId,
+                @"order_id"           : orderId,
+                @"status"             : status,
+                }
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          if (block) block(responseObject, nil);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          // 401 が返ったときログインが必要.
+          if (((NSHTTPURLResponse *)task.response).statusCode == 401) {
+              if (block) block(nil, nil);
+          }
+          else {
+              if (block) block(nil, error);
+          }
+      }];
+    
+}
+
 
 - (void)postSavingsApplyToWithdrawWithSessionId:(NSString *)sessionId bankName:(NSString *)bankName branchName:(NSString *)branchName accountType:(NSString *)accountType accountName:(NSString *)accountName accountNumber:(NSString *)accountNumber drawings:(NSString *)drawings password:(NSString *)password completion:(void (^)(NSDictionary *, NSError *))block
 {

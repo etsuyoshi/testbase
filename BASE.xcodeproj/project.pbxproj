@@ -150,6 +150,9 @@
 		6549C8DB1716FA6E00B94C0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6549C8B61716FA6E00B94C0E /* Foundation.framework */; };
 		6549C8E31716FA6E00B94C0E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6549C8E11716FA6E00B94C0E /* InfoPlist.strings */; };
 		6549C8E61716FA6E00B94C0E /* BASETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549C8E51716FA6E00B94C0E /* BASETests.m */; };
+		654B53D218F9716F0021B51C /* BSBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B53D118F9716F0021B51C /* BSBank.m */; };
+		654B53D518F9833E0021B51C /* BSBankIndexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B53D418F9833E0021B51C /* BSBankIndexTableViewController.m */; };
+		654B5431190616BA0021B51C /* BSMoneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B5430190616BA0021B51C /* BSMoneyManager.m */; };
 		6559F9A218BF406D0067D2D2 /* BSAboutAppNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F93718BF406D0067D2D2 /* BSAboutAppNavigationViewController.m */; };
 		6559F9A318BF406D0067D2D2 /* BSAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F93918BF406D0067D2D2 /* BSAboutAppViewController.m */; };
 		6559F9A418BF406D0067D2D2 /* BSAboutItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6559F93B18BF406D0067D2D2 /* BSAboutItemViewController.m */; };
@@ -347,6 +350,11 @@
 		6598131A175C19C9009023B8 /* icon_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 65981318175C19C4009023B8 /* icon_info.png */; };
 		65981320175EFF13009023B8 /* btn_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 6598131E175EFEC4009023B8 /* btn_05.png */; };
 		65981321175EFF13009023B8 /* btn_05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6598131F175EFEE8009023B8 /* btn_05@2x.png */; };
+		65C1066518ED6B4F00DF4253 /* BSThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C1066418ED6B4F00DF4253 /* BSThemeTableViewCell.xib */; };
+		65C1066818ED6E6A00DF4253 /* BSThemeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1066718ED6E6A00DF4253 /* BSThemeTableViewCell.m */; };
+		65C1066A18F271BC00DF4253 /* BSPaymentCompanyImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C1066918F271BC00DF4253 /* BSPaymentCompanyImageView.xib */; };
+		65C1066D18F272C100DF4253 /* mastercard_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C1066B18F272C100DF4253 /* mastercard_logo.png */; };
+		65C1066E18F272C100DF4253 /* visa_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C1066C18F272C100DF4253 /* visa_logo.png */; };
 		65C6CFD118B6058D00C0DFF9 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6CFC018B604EB00C0DFF9 /* libAdIdAccess.a */; };
 		65C6CFD218B6058D00C0DFF9 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6CFC118B604EB00C0DFF9 /* libGoogleAnalyticsServices.a */; };
 		65C6CFD418B6059800C0DFF9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C6CFD318B6059800C0DFF9 /* libz.dylib */; };
@@ -610,6 +618,12 @@
 		6549C8E21716FA6E00B94C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6549C8E41716FA6E00B94C0E /* BASETests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASETests.h; sourceTree = "<group>"; };
 		6549C8E51716FA6E00B94C0E /* BASETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASETests.m; sourceTree = "<group>"; };
+		654B53D018F9716F0021B51C /* BSBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBank.h; sourceTree = "<group>"; };
+		654B53D118F9716F0021B51C /* BSBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBank.m; sourceTree = "<group>"; };
+		654B53D318F9833E0021B51C /* BSBankIndexTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBankIndexTableViewController.h; sourceTree = "<group>"; };
+		654B53D418F9833E0021B51C /* BSBankIndexTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBankIndexTableViewController.m; sourceTree = "<group>"; };
+		654B542F190616BA0021B51C /* BSMoneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSMoneyManager.h; sourceTree = "<group>"; };
+		654B5430190616BA0021B51C /* BSMoneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSMoneyManager.m; sourceTree = "<group>"; };
 		6559F93618BF406D0067D2D2 /* BSAboutAppNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAboutAppNavigationViewController.h; sourceTree = "<group>"; };
 		6559F93718BF406D0067D2D2 /* BSAboutAppNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSAboutAppNavigationViewController.m; sourceTree = "<group>"; };
 		6559F93818BF406D0067D2D2 /* BSAboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAboutAppViewController.h; sourceTree = "<group>"; };
@@ -892,6 +906,12 @@
 		65981318175C19C4009023B8 /* icon_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info.png; sourceTree = "<group>"; };
 		6598131E175EFEC4009023B8 /* btn_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_05.png; sourceTree = "<group>"; };
 		6598131F175EFEE8009023B8 /* btn_05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_05@2x.png"; sourceTree = "<group>"; };
+		65C1066418ED6B4F00DF4253 /* BSThemeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSThemeTableViewCell.xib; sourceTree = "<group>"; };
+		65C1066618ED6E6A00DF4253 /* BSThemeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSThemeTableViewCell.h; sourceTree = "<group>"; };
+		65C1066718ED6E6A00DF4253 /* BSThemeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSThemeTableViewCell.m; sourceTree = "<group>"; };
+		65C1066918F271BC00DF4253 /* BSPaymentCompanyImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSPaymentCompanyImageView.xib; sourceTree = "<group>"; };
+		65C1066B18F272C100DF4253 /* mastercard_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard_logo.png; sourceTree = "<group>"; };
+		65C1066C18F272C100DF4253 /* visa_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa_logo.png; sourceTree = "<group>"; };
 		65C6CFC018B604EB00C0DFF9 /* libAdIdAccess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdIdAccess.a; sourceTree = "<group>"; };
 		65C6CFC118B604EB00C0DFF9 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		65C6CFC318B604EB00C0DFF9 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
@@ -1163,6 +1183,8 @@
 		6538D6CC1717191200B75AD8 /* iphoneParts */ = {
 			isa = PBXGroup;
 			children = (
+				65C1066B18F272C100DF4253 /* mastercard_logo.png */,
+				65C1066C18F272C100DF4253 /* visa_logo.png */,
 				6597390F17F84DDF00F32780 /* icon.png */,
 				6597391017F84DDF00F32780 /* icon2x.png */,
 				650399A217E8184C00053371 /* ios7parts */,
@@ -1463,6 +1485,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		654B53CF18F971380021B51C /* DetaModels */ = {
+			isa = PBXGroup;
+			children = (
+				654B53D018F9716F0021B51C /* BSBank.h */,
+				654B53D118F9716F0021B51C /* BSBank.m */,
+			);
+			name = DetaModels;
+			sourceTree = "<group>";
+		};
 		6559F93518BF402B0067D2D2 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1533,9 @@
 		6597C49B18B1E3A30090859F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				654B53CF18F971380021B51C /* DetaModels */,
+				654B542F190616BA0021B51C /* BSMoneyManager.h */,
+				654B5430190616BA0021B51C /* BSMoneyManager.m */,
 				65F3827C18B3380900B127A2 /* BSUserManager.h */,
 				65F3827D18B3380900B127A2 /* BSUserManager.m */,
 				65F3827318B1E5EA00B127A2 /* BSSellerAPIClient.h */,
@@ -1627,6 +1661,8 @@
 				6559F99F18BF406D0067D2D2 /* BSVaryViewController.m */,
 				6559F9A018BF406D0067D2D2 /* ViewController.h */,
 				6559F9A118BF406D0067D2D2 /* ViewController.m */,
+				654B53D318F9833E0021B51C /* BSBankIndexTableViewController.h */,
+				654B53D418F9833E0021B51C /* BSBankIndexTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1706,6 +1742,10 @@
 				6559FA1F18BF408F0067D2D2 /* UIBarButtonItem+DesignedButton.m */,
 				6559FA2018BF408F0067D2D2 /* UIImage+ImageWithUIView.h */,
 				6559FA2118BF408F0067D2D2 /* UIImage+ImageWithUIView.m */,
+				65C1066418ED6B4F00DF4253 /* BSThemeTableViewCell.xib */,
+				65C1066618ED6E6A00DF4253 /* BSThemeTableViewCell.h */,
+				65C1066718ED6E6A00DF4253 /* BSThemeTableViewCell.m */,
+				65C1066918F271BC00DF4253 /* BSPaymentCompanyImageView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1850,6 +1890,7 @@
 				6538D7351717191300B75AD8 /* delete@2x.png in Resources */,
 				6538D7361717191300B75AD8 /* edit_item.png in Resources */,
 				65221CAA17F6DCA200C6C2BE /* Default568h@2x.png in Resources */,
+				65C1066D18F272C100DF4253 /* mastercard_logo.png in Resources */,
 				6538D7371717191300B75AD8 /* edit_item@2x.png in Resources */,
 				6538D7381717191300B75AD8 /* help.png in Resources */,
 				65221CA717F6DCA200C6C2BE /* Default-568h@2x.png in Resources */,
@@ -1974,6 +2015,7 @@
 				6559FA2318BF408F0067D2D2 /* BSAddressInfoCell.xib in Resources */,
 				658DA1B51749B1A10052A059 /* nav_bar_shop.png in Resources */,
 				658DA1B61749B1A10052A059 /* nav_bar_shop@2x.png in Resources */,
+				65C1066518ED6B4F00DF4253 /* BSThemeTableViewCell.xib in Resources */,
 				658DA1BB1749CE890052A059 /* icon_buy.png in Resources */,
 				658DA1BC1749CE890052A059 /* icon_myshop@2x.png in Resources */,
 				65FF2CCC17E89CA6009E1B8A /* icon_7_g_buy_share.png in Resources */,
@@ -2035,6 +2077,7 @@
 				657F3544176572B4002E738F /* shop_2.png in Resources */,
 				657F3545176572B4002E738F /* shop_2@2x.png in Resources */,
 				65FF2CD317E89CA6009E1B8A /* icon_7_myshop@2x.png in Resources */,
+				65C1066E18F272C100DF4253 /* visa_logo.png in Resources */,
 				657F3546176572B4002E738F /* shop_3_small.png in Resources */,
 				657F3547176572B4002E738F /* shop_3@2x.png in Resources */,
 				657F3548176572B4002E738F /* shop_4.png in Resources */,
@@ -2078,6 +2121,7 @@
 				65FF2CF917E96662009E1B8A /* logo_7_header@2x.png in Resources */,
 				657F357A176581F7002E738F /* originalTheme_9.png in Resources */,
 				657F357B176581F7002E738F /* originalTheme_9@2x.png in Resources */,
+				65C1066A18F271BC00DF4253 /* BSPaymentCompanyImageView.xib in Resources */,
 				65221CAC17F6DCA200C6C2BE /* icon_7_f_buy_cart@2x.png in Resources */,
 				657F35811766E13F002E738F /* backbtn2.png in Resources */,
 				65221C9C17F6DCA200C6C2BE /* btn_7_shopping.png in Resources */,
@@ -2217,6 +2261,7 @@
 				6549C8C51716FA6E00B94C0E /* AppDelegate.m in Sources */,
 				6559F9B018BF406D0067D2D2 /* BSContactViewController.m in Sources */,
 				6559FA2218BF408F0067D2D2 /* BSAddressInfoCell.m in Sources */,
+				654B53D518F9833E0021B51C /* BSBankIndexTableViewController.m in Sources */,
 				6559F9D118BF406E0067D2D2 /* BSShopViewController.m in Sources */,
 				65F3827B18B227F100B127A2 /* BSCommonAPIClient.m in Sources */,
 				65F3827518B1E5EA00B127A2 /* BSSellerAPIClient.m in Sources */,
@@ -2243,7 +2288,9 @@
 				65F3828118B3644900B127A2 /* BSPublicAPIClient.m in Sources */,
 				6559F9C818BF406E0067D2D2 /* BSPushSettingViewController.m in Sources */,
 				6559FA3E18BF408F0067D2D2 /* BSTableCellButton.m in Sources */,
+				654B53D218F9716F0021B51C /* BSBank.m in Sources */,
 				6559FA4718BF408F0067D2D2 /* ShopTableViewCell.m in Sources */,
+				654B5431190616BA0021B51C /* BSMoneyManager.m in Sources */,
 				6559FA2818BF408F0067D2D2 /* BSCurationShop.m in Sources */,
 				6559FA2918BF408F0067D2D2 /* BSCustomButton.m in Sources */,
 				6559FA3018BF408F0067D2D2 /* BSItemImagaView.m in Sources */,
@@ -2269,6 +2316,7 @@
 				6559F9A518BF406D0067D2D2 /* BSAboutPolicyViewController.m in Sources */,
 				65F3827E18B3380900B127A2 /* BSUserManager.m in Sources */,
 				6559F9B618BF406D0067D2D2 /* BSEditShopViewController.m in Sources */,
+				65C1066818ED6E6A00DF4253 /* BSThemeTableViewCell.m in Sources */,
 				6559FA2B18BF408F0067D2D2 /* BSInputAddressTableView.m in Sources */,
 				6559FA4518BF408F0067D2D2 /* ItemTableViewCell.m in Sources */,
 				6559F9C018BF406E0067D2D2 /* BSMoneyHistoryViewController.m in Sources */,

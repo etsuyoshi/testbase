@@ -334,6 +334,21 @@ static NSDictionary *paymentInfo = nil;
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [cashField resignFirstResponder];
+    [bankNameField resignFirstResponder];
+    [branchNameField resignFirstResponder];
+    [accountVaryField resignFirstResponder];
+    [accountHolderField resignFirstResponder];
+    [accountNumberField resignFirstResponder];
+
+    
+    NSLog(@"viewWillDisappear");
+    [super viewWillDisappear:animated];
+    
+}
+
 
 
 /*************************************テーブルビュー*************************************/

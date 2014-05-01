@@ -1669,7 +1669,7 @@ static NSDictionary *importCartDictionary = nil;
 
 
 @end
-/*
+
 void exceptionHandler(NSException *exception) {
     // ここで、例外発生時の情報を出力します。
     // NSLog関数でcallStackSymbolsを出力することで、
@@ -1692,4 +1692,3 @@ void exceptionHandler(NSException *exception) {
     [ud synchronize];
     
 }
-*/
