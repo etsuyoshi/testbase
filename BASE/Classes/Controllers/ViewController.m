@@ -32,13 +32,16 @@ bool isModaled = NO;
     
     // キーチェインに保存してるアイパスがない場合チュートリアルビューに飛ぶ
     if (!email) {
-            UIViewController *modalView = [self.storyboard instantiateViewControllerWithIdentifier:@"tutorial"];
+        NSLog(@"tutorial start");
+            UIViewController *modalView =
+        [self.storyboard instantiateViewControllerWithIdentifier:@"tutorial"];
             [self presentViewController:modalView animated:YES completion: ^{
                 NSLog(@"完了");}];
+        
 
     }else{
 
-        
+        NSLog(@"email not registered");
     }
     
     
@@ -49,6 +52,7 @@ bool isModaled = NO;
     [super viewDidLoad];
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"itemAdmin"];
     
+    NSLog(@"view did load");
 }
 
 

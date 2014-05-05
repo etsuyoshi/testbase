@@ -1035,8 +1035,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C6CFD418B6059800C0DFF9 /* libz.dylib in Frameworks */,
 				65C6CFD118B6058D00C0DFF9 /* libAdIdAccess.a in Frameworks */,
+				65C6CFD418B6059800C0DFF9 /* libz.dylib in Frameworks */,
 				65C6CFD218B6058D00C0DFF9 /* libGoogleAnalyticsServices.a in Frameworks */,
 				65FBA794178BF45300AB474D /* ImageIO.framework in Frameworks */,
 				65FBA792178BF41800AB474D /* MapKit.framework in Frameworks */,
@@ -1821,6 +1821,11 @@
 				CLASSPREFIX = BS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Takkun;
+				TargetAttributes = {
+					6549C8B01716FA6E00B94C0E = {
+						DevelopmentTeam = 8ZAC8P584F;
+					};
+				};
 			};
 			buildConfigurationList = 6549C8AC1716FA6E00B94C0E /* Build configuration list for PBXProject "BASE" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2396,7 +2401,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuta Tsuruoka (4AVP478RB4)";
 				"CODE_SIGN_RESOURCE_RULES_PATH[sdk=*]" = "";
 				COPY_PHASE_STRIP = NO;
@@ -2413,8 +2418,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A71A1E15-63F8-41DC-BA7A-9F6BBAE86F50";
+				PROVISIONING_PROFILE = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2432,7 +2437,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BASE INC. (8ZAC8P584F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuta Tsuruoka (4AVP478RB4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2440,7 +2445,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9943854A-A421-4044-A60B-E6886DCD9DB4";
+				PROVISIONING_PROFILE = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2452,8 +2458,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Yuta Tsuruoka (4AVP478RB4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_RESOURCE_RULES_PATH[sdk=*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BASE/BASE-Prefix.pch";
@@ -2467,9 +2474,11 @@
 					"\\\"$(SRCROOT)/BASE\\\"",
 					"$(SRCROOT)",
 					/Users/takkun/workspace/objective_c/BASE/base_ios/BASE/Library/GoogleAnalytics,
+					"$(PROJECT_DIR)/BASE/Library/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=*]" = "A71A1E15-63F8-41DC-BA7A-9F6BBAE86F50";
+				PROVISIONING_PROFILE = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
+				"PROVISIONING_PROFILE[sdk=*]" = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2482,8 +2491,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BASE INC. (8ZAC8P584F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BASE/BASE-Prefix.pch";
 				INFOPLIST_FILE = "BASE/BASE-Info.plist";
@@ -2496,9 +2505,11 @@
 					"\\\"$(SRCROOT)/BASE\\\"",
 					"$(SRCROOT)",
 					/Users/takkun/workspace/objective_c/BASE/base_ios/BASE/Library/GoogleAnalytics,
+					"$(PROJECT_DIR)/BASE/Library/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9943854A-A421-4044-A60B-E6886DCD9DB4";
+				PROVISIONING_PROFILE = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B4F16D4-96F4-4F85-A0B0-98A8BE7CA5BA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

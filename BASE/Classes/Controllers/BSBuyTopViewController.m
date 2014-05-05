@@ -892,6 +892,7 @@ static NSString *importItemId = nil;
 }
 
 - (void)setUpScrollView:(NSArray *)titleLabels {
+    NSLog(@"setupscroll view");
     //NSLog(@"%@",titleLabels);
     
     int scrollSize = 320;
@@ -902,6 +903,7 @@ static NSString *importItemId = nil;
     
     //if our scrollview has already the labels stop here
     if ([self.categoryScrollView subviews].count>0) {
+        NSLog(@"category scrollview のサブビューが存在しません");
         self.categoryScrollView.contentOffset = CGPointZero;
         return;
     }
