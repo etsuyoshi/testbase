@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>036E8F9F-69C3-4961-AB5D-1CA7C98C4F19</string>
+	<string>D571CD89-81E3-4A91-9442-CA7E564AD69D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BASE</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>410BF397-68A6-4E76-8C4C-4C054D26CD9B</key>
-		<string>ssh://git.baseec.info/base_ios.git</string>
+		<key>767E6F33-8640-4965-98F4-E101CE6853C4</key>
+		<string>ssh://github.com/etsuyoshi/testbase.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BASE.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>410BF397-68A6-4E76-8C4C-4C054D26CD9B</key>
+		<key>767E6F33-8640-4965-98F4-E101CE6853C4</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://git.baseec.info/base_ios.git</string>
+	<string>ssh://github.com/etsuyoshi/testbase.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>410BF397-68A6-4E76-8C4C-4C054D26CD9B</string>
+	<string>767E6F33-8640-4965-98F4-E101CE6853C4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>410BF397-68A6-4E76-8C4C-4C054D26CD9B</string>
+			<string>767E6F33-8640-4965-98F4-E101CE6853C4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>base_ios</string>
 		</dict>

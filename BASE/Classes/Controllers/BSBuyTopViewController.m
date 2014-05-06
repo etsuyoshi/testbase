@@ -835,7 +835,8 @@ static NSString *importItemId = nil;
         NSLog(@"トークンの取得二回目: %@", results);
    
         apnTokenId = [results valueForKeyPath:@"result.PushNotification.apn_token_id"];
-        // NSLog(@"ぷっしゅのいｄ%@",tokenId);
+        // 開発モードではapnTokenIdはnull
+//        NSLog(@"ぷっしゅのいｄ%@",apnTokenId);
         
         NSString *errorMessage = [results valueForKeyPath:@"error.message"];
         NSLog(@"%@",errorMessage);
