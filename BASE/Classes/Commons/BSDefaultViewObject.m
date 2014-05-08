@@ -49,7 +49,7 @@ static UIImageView *backgroundImageView = nil;
 
 + (NSString*)setApiUrl{
     //本番環境
-    //return @"https://dt.thebase.in";
+    return @"https://dt.thebase.in";
     
     //ステージング環境
     // return @"http://dt.base0.info";
@@ -58,7 +58,7 @@ static UIImageView *backgroundImageView = nil;
     //return @"http://api.base0.info";
     
     //テスト環境
-    return @"http://api.n-base.info";
+//    return @"http://api.n-base.info";
     
     //反社チェック用
     //return @"http://api.upbase.info";

@@ -27,6 +27,7 @@
     UISwitch *cashSwitch;
     UISwitch *bankSwitch;
     
+    
     UITextField *bankNameField;
     UITextField *branchNameField;
     UITextField *accountVaryField;
@@ -36,6 +37,8 @@
     
     UIActionSheet *stockActionSheet;
     UIPickerView *stockPicker;
+    
+    
     
     
 }
@@ -254,7 +257,6 @@ static NSDictionary *paymentInfo = nil;
     [accountNumberField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     accountNumberField.backgroundColor = [UIColor clearColor];
     [accountNumberField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-    
     
     
     
